@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('filters/guest_filter.php');
 require('config/database.php');
 require('includes/functions.php');
 require('includes/constants.php');
@@ -23,6 +24,11 @@ require('includes/constants.php');
             $userHasBeenFound = $q->rowCount();
 
             if($userHasBeenFound){
+                
+                $user = $q->fetch(PDO::FETCH_OBJ);
+                
+                $_SESSION['user_id'] = $user->id;
+
                 redirect('profile.php');
             } else {
                 set_flash('Combinaison Identifiant/Password incorrect!', 'danger');

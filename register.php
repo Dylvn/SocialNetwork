@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('filters/guest_filter.php');
 require('config/database.php');
 require('includes/functions.php');
 require('includes/constants.php');
