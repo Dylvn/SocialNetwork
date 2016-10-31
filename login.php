@@ -28,6 +28,7 @@ require('includes/constants.php');
                 $user = $q->fetch(PDO::FETCH_OBJ);
                 
                 $_SESSION['user_id'] = $user->id;
+                $_SESSION['pseudo'] = $identifiant;
 
                 redirect('profile.php');
             } else {
